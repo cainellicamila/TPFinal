@@ -29,41 +29,29 @@ class APITests(TestCase):
         response=api.get_coordinates(query)
         self.assertIsNotNone(response)
 
-    def test_buscar(self):
+    def test_buscarRestaurant(self):
 
         api=ReusableForm()
-        lat= '-32.9545096'
-        lon= '-60.6430954999999'
-        response=api.buscar(lat, lon)
+        x = 'location=' + '-32.9545096' + ',' + '-60.6430954999999' + '&radius=500'
+        y = 'restaurant'
+        response=api.buscar(x, y)
         self.assertIsNotNone(response)
 
+    def test_buscarHospital(self):
 
+        api=ReusableForm()
+        x = 'location=' + '-32.9545096' + ',' + '-60.6430954999999' + '&radius=500'
+        y = 'hospital'
+        response=api.buscar(x, y)
+        self.assertIsNotNone(response)
 
+    def test_buscarSupermercado(self):
 
-
-
-    '''
-    def test_can_create_a_new_user(self):
-        name = "test"
-        lastname = "test123"
-        data = '{"firstname":"%s", "lastname": "%s"}' %(name, lastname)
-
-        response = self.client.get("/users")
-        self.assertEquals(response.json["data"], [], "There is no users")
-
-        response = self.client.post("/users", data=data, content_type='application/json')
-        self.assertEquals(200, response.status_code)
-
-        id_created = response.json['data']['id']
-
-        # and works with a single record route
-        response = self.client.get("/users/{0}".format(id_created))
-        self.assertEquals(response.json['data']['id'], str(id_created))
-        self.assertEquals(response.json['data']['firstname'], name)
-        self.assertEquals(response.json['data']['lastname'], lastname)
-
-    '''
-
+        api=ReusableForm()
+        x = 'location=' + '-32.9545096' + ',' + '-60.6430954999999' + '&radius=500'
+        y = 'supermarket'
+        response=api.buscar(x, y)
+        self.assertIsNotNone(response)
 
 
 if __name__ == '__main__':
