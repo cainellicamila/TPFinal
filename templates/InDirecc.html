@@ -5,16 +5,14 @@
     </head>
     <body>
 
+        {% if resultados %}
+            <ul>
+                {% for res in resultados %}
+                    <li>{{ res[0] }}: {{ res[1] }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
 
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                <ul>
-                    {% for message in messages %}
-                        <li>{{ message[1] }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        {% endwith %}
         <form action="" method="post">
             {{ form.csrf }}
 
