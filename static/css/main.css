@@ -1,0 +1,28 @@
+body { font-family: sans-serif;
+        background-image: url("/static/fondo.png");
+        background-position: right top;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        }
+
+ul li {list-style-type: circle;
+        list-style-position: inside}
+
+.redondeado {
+   border-radius: 2px;
+    border: 1px solid #39c}
+
+input, textarea {
+  font    : .9em/1.5em "handwriting", sans-serif;
+
+  border-radius: 2px;
+  border :  1px solid #39c;
+  padding : 0 10px;
+  margin  : 0;
+  width   : 240px;
+
+  background: none;
+}
+

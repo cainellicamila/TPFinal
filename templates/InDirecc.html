@@ -1,32 +1,41 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
     <head>
-        <title>Reusable Form Demo</title>
+        <title>Buscar Lugares</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     </head>
     <body>
 
 
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                <ul>
-                    {% for message in messages %}
-                        <li>{{ message[1] }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        {% endwith %}
+
         <form action="" method="post">
             {{ form.csrf }}
-
+            <div>
             <div class="input text">
                 {{ form.direccion.label }} {{ form.direccion }}
             </div>
+                </div>
 
+                <div>
             <div class="input submit">
-                <input type="submit" name="submit_button" value="Buscar Restaurants" />
-                <input type="submit" name="submit_button" value="Buscar Hospitales" />
-                <input type="submit" name="submit_button" value="Buscar Supermercados" />
+
+                <input type="submit"  class="redondeado" name="submit_button" value="Buscar Restaurants" style = "margin: 5px" />
+
+
+                <input type="submit" class="redondeado" name="submit_button" value="Buscar Hospitales" style = "margin: 5px" />
+
+
+                <input type="submit" class="redondeado" name="submit_button" value="Buscar Supermercados" style = "margin: 5px" />
+
             </div>
+             </div>
         </form>
+    {% if resultados %}
+            <ul>
+                {% for res in resultados %}
+                    <li>{{ res[0] }}: {{ res[1] }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
     </body>
 </html>
